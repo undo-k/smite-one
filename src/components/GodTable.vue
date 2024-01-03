@@ -7,7 +7,7 @@ let sortBy = ref("name");
 let sortDescend = ref(true);
 
 const fetchGods = () => {
-  fetch("http://127.0.0.1:8000/gods/")
+  fetch("https://web-production-3593.up.railway.app/gods/")
     .then((response) => response.json())
     .then((json) => {
       gods.value = json;
