@@ -1,1 +1,1 @@
-web: npm run build --omit=dev && npm run preview --host --omit=dev
+web: npm run build --omit=dev && npx http-server ./dist
