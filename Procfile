@@ -1,1 +1,1 @@
-web: npm run build && npx http-server ./dist
+web: npm run build && npm run preview
