@@ -1,1 +1,1 @@
-web: npm run build && npm run preview --host
+web: npm run build && npm run preview
