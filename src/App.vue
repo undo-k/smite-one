@@ -1,5 +1,18 @@
 <script setup>
 import GodTable from "./components/GodTable.vue";
+import { ref } from "vue";
+import GodDetail from "@/components/GodDetail.vue";
+let godDetailModel = ref("");
+let detailsHidden = ref(true);
+
+const setGodDetailModel = (god) => {
+  godDetailModel.value = god;
+  detailsHidden.value = false;
+};
+
+const hideGodDetail = () => {
+  detailsHidden.value = true;
+};
 </script>
 
 <template>
@@ -53,7 +66,16 @@ import GodTable from "./components/GodTable.vue";
 
     <main class="flex-grow">
       <div class="container mt-4 mx-auto shadow-2xl">
-        <GodTable />
+        <div
+          class="min-h-[50vh] max-h-[75vh] max-w-[1200px] border-2 border-gray-950 overflow-y-scroll flex"
+        >
+          <GodTable v-model="setGodDetailModel" v-show="detailsHidden" />
+          <GodDetail
+            v-model:god="godDetailModel"
+            v-model:hide-god-detail="hideGodDetail"
+            v-if="!detailsHidden"
+          />
+        </div>
       </div>
     </main>
     <footer>
