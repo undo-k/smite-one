@@ -18,11 +18,11 @@ const hideGodDetail = () => {
 <template>
   <div class="max-w-[1000px] mx-auto pt-4 flex flex-col h-[100vh]">
     <header>
-      <div class="flex justify-center">
+      <div>
         <svg
           class="text-gray-950"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="-1-1 374.44 57.69"
+          viewBox="-1 -1 374.44 57.69"
           fill="currentColor"
           stroke="url(#grad1)"
         >
@@ -67,7 +67,7 @@ const hideGodDetail = () => {
     <main class="flex-grow">
       <div class="container mt-4 mx-auto shadow-2xl">
         <div
-          class="min-h-[50vh] max-h-[75vh] max-w-[100vw] mx-auto border-2 border-gray-950 overflow-y-scroll"
+          class="min-h-[50vh] max-h-[75vh] max-w-[100vw] mx-auto border-2 border-gray-950 overflow-y-scroll overflow-x-hidden"
         >
           <GodTable v-model="setGodDetailModel" v-show="detailsHidden" />
           <GodDetail
