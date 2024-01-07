@@ -67,7 +67,8 @@ onMounted(() => {
   <table class="text-sm text-left bg-gray-700 text-gray-400">
     <thead class="text-xs uppercase text-gray-400">
       <tr>
-        <th scope="col" class="sm:px-6 sm:w-1/5 py-3 pl-3">
+        <!-- God -->
+        <th scope="col" class="sm:px-6 w-1/4 py-3 pl-2">
           <div
             class="flex items-center hover:cursor-pointer"
             @click="sortByColumn('name')"
@@ -105,7 +106,8 @@ onMounted(() => {
             </svg>
           </span>
         </th>
-        <th class="w-1/6">
+        <!-- Role -->
+        <th scope="col" class="w-1/6">
           <span
             class="flex items-center hover:cursor-pointer"
             @click="sortByColumn('role')"
@@ -124,12 +126,14 @@ onMounted(() => {
             </svg>
           </span>
         </th>
-        <th scope="col" class="sm:w-1/4">
+        <!-- Hot Items -->
+        <th scope="col" class="w-1/4">
           <span class="flex items-center">HOT ITEMS 🔥 </span>
         </th>
-        <td class>
+        <!-- Search -->
+        <td class="sm:pr-3 pr-2">
           <input
-            class="rounded-lg pl-3 focus:placeholder:text-transparent w-[5rem] sm:w-auto"
+            class="bg-gray-800 rounded-lg pl-3 focus:placeholder:text-transparent w-[5rem] sm:w-auto"
             v-model="filter"
             placeholder="Search..."
           />
@@ -174,7 +178,7 @@ onMounted(() => {
           </span>
         </td>
 
-        <td class="">
+        <td>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6 mx-auto hidden sm:block"

@@ -64,7 +64,7 @@ const hideGodDetail = () => {
       </div>
     </header>
 
-    <main class="flex-grow">
+    <main class="mb-2">
       <div class="container mt-4 mx-auto shadow-2xl">
         <div
           class="min-h-[50vh] max-h-[75vh] max-w-[100vw] mx-auto border-2 border-gray-950 overflow-y-scroll overflow-x-hidden"
@@ -79,7 +79,12 @@ const hideGodDetail = () => {
       </div>
     </main>
     <footer>
-      <div class="text-center text-xs text-gray-50">made with ❤️</div>
+      <div class="text-center text-xs text-gray-50">
+        <a class="text-indigo-400" href="https://github.com/undo-k/smite-one/"
+          >github</a
+        >
+        - made with ❤️️️
+      </div>
     </footer>
   </div>
 </template>
