@@ -67,7 +67,7 @@ const hideGodDetail = () => {
     <main class="flex-grow">
       <div class="container mt-4 mx-auto shadow-2xl">
         <div
-          class="min-h-[50vh] max-h-[75vh] max-w-[1200px] border-2 border-gray-950 overflow-y-scroll flex"
+          class="min-h-[50vh] max-h-[75vh] max-w-[100vw] mx-auto border-2 border-gray-950 overflow-y-scroll"
         >
           <GodTable v-model="setGodDetailModel" v-show="detailsHidden" />
           <GodDetail

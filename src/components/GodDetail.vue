@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-gray-800 flex-grow text-gray-300 px-6 py-4">
+  <div class="bg-gray-800 flex-grow text-gray-300 px-3 py-3">
     <button @click="hideGodDetail">
       <svg
         xmlns="http://www.w3.org/2000/svg"

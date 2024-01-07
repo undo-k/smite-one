@@ -67,7 +67,7 @@ onMounted(() => {
   <table class="text-sm text-left bg-gray-700 text-gray-400">
     <thead class="text-xs uppercase text-gray-400">
       <tr>
-        <th scope="col" class="px-6 w-full md:w-1/4 lg:w-1/5">
+        <th scope="col" class="sm:px-6 sm:w-1/5 py-3 pl-3">
           <div
             class="flex items-center hover:cursor-pointer"
             @click="sortByColumn('name')"
@@ -86,12 +86,12 @@ onMounted(() => {
             </svg>
           </div>
         </th>
-        <th scope="col" class="w-full md:w-1/4 lg:w-1/5">
-          <div
+        <th scope="col" class="w-1/6">
+          <span
             class="flex items-center hover:cursor-pointer"
             @click="sortByColumn('win_rate')"
           >
-            Win Rate
+            WR
             <svg
               class="w-3 h-3 ms-1.5"
               aria-hidden="true"
@@ -103,10 +103,10 @@ onMounted(() => {
                 d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"
               />
             </svg>
-          </div>
+          </span>
         </th>
-        <th scope="col" class="w-full md:w-1/4 lg:w-1/5">
-          <div
+        <th class="w-1/6">
+          <span
             class="flex items-center hover:cursor-pointer"
             @click="sortByColumn('role')"
           >
@@ -122,16 +122,16 @@ onMounted(() => {
                 d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"
               />
             </svg>
-          </div>
+          </span>
         </th>
-        <th scope="col" class="w-full md:w-1/4 lg:w-1/5">
-          <div class="flex items-center">Hot Items 🔥</div>
+        <th scope="col" class="sm:w-1/4">
+          <span class="flex items-center">HOT ITEMS 🔥 </span>
         </th>
-        <td class="w-full md:w-1/4 lg:w-1/5 py-3 px-4">
+        <td class>
           <input
-            class="rounded-lg pl-3 focus:placeholder:text-transparent"
+            class="rounded-lg pl-3 focus:placeholder:text-transparent w-[5rem] sm:w-auto"
             v-model="filter"
-            placeholder="Press [tab] to filter"
+            placeholder="Search..."
           />
         </td>
       </tr>
@@ -143,7 +143,7 @@ onMounted(() => {
         @click="setGodDetailModel(god)"
         class="border-b odd:bg-gray-800 hover:bg-gray-600 hover:cursor-pointer even:bg-gray-900 border-gray-700"
       >
-        <th scope="row" class="px-6 py-4 font-medium text-white">
+        <th scope="row" class="pl-1 sm:px-6 py-4 font-medium text-white">
           {{ god.name }}
         </th>
         <td>
@@ -153,33 +153,31 @@ onMounted(() => {
         </td>
         <td>
           <span
+            class="text-xs px-1.5 py-0.5 rounded-full border"
             :class="
               'border-' +
               god.role.toLowerCase() +
               ' text-' +
-              god.role.toLowerCase() +
-              ' border text-xs px-1.5 py-0.5 rounded-full'
+              god.role.toLowerCase()
             "
             >{{ god.role }}</span
           >
         </td>
-        <td>
-          <div class="flex gap-px">
+        <td class="pr-12 sm:px-3">
+          <span class="flex gap-px w-1/2 sm:w-1/6">
             <img
               v-for="item in god.top_items"
               :src="item.image"
               :alt="item.name"
-              :class="
-                'max-w-1/4 md:w-1/4 lg:w-1/5 xl:w-1/5 border-solid border border-' +
-                god.role.toLowerCase()
-              "
+              :class="'border-solid border border-' + god.role.toLowerCase()"
             />
-          </div>
+          </span>
         </td>
-        <td>
+
+        <td class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mx-auto"
+            class="h-6 w-6 mx-auto hidden sm:block"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
