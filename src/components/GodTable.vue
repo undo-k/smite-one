@@ -32,18 +32,9 @@ const filteredGods = () => {
         : a[key].toFixed(2) - b[key].toFixed(2),
     );
   } else {
-    // return insertionSort(filteredGods);
-    const t0 = performance.now();
-    const result = filteredGods.sort((a, b) => {
-      if (stringComparator(a[key], b[key])) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-    const t1 = performance.now();
-    console.log(t1 - t0, "ms");
-    return result;
+    return filteredGods.sort((a, b) =>
+      stringComparator(a[key], b[key]) ? 1 : -1,
+    );
   }
 };
 
@@ -63,42 +54,6 @@ const stringComparator = (string1, string2) => {
   } else {
     return string1 < string2;
   }
-};
-const insertionSort = (array) => {
-  //  https://www.doabledanny.com/insertion-sort-in-javascript
-  const key = sortingKey.value;
-  for (let i = 1; i < array.length; i++) {
-    let currentValue = array[i];
-
-    let j;
-
-    for (
-      j = i - 1;
-      j >= 0 && stringComparator(array[j][key], currentValue[key]);
-      j--
-    ) {
-      array[j + 1] = array[j];
-    }
-    array[j + 1] = currentValue;
-  }
-  return array;
-};
-const quickSort = (array) => {
-  if (array.length <= 1) {
-    return array;
-  }
-  const key = sortingKey.value;
-
-  let pivot = array[0];
-
-  let left = [];
-  let right = [];
-
-  for (let i = 1; i < array.length; i++) {
-    array[i][key] < pivot ? left.push(array[i]) : right.push(array[i]);
-  }
-
-  return quickSort(left).concat(pivot, quickSort(right));
 };
 
 const setColumnSort = (column) => {
