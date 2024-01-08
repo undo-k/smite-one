@@ -14,7 +14,6 @@ const fetchGodDetail = () => {
     .then((response) => response.json())
     .then((json) => {
       god.value = json;
-      console.log(god.value.name);
     });
 };
 
@@ -78,13 +77,13 @@ onMounted(() => {
             >Popular</span
           >
           <span
-            v-if="god.ban_rate > 45"
+            v-if="god.ban_rate > 15"
             class="text-xs px-1.5 py-0.5 rounded-full border border-red-500 text-red-500"
             >Top Ban</span
           >
         </div>
       </div>
-      <div class="flex ml-auto space-x-1 mt-4 mr-2 font-bold">
+      <div class="flex ml-auto space-x-1 mt-4 mr-2 font-bold sm:font-normal">
         <div
           v-if="god.win_rate !== undefined"
           class="flex flex-col rounded-md px-2 bg-gray-700 shadow-lg"
@@ -126,7 +125,30 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div><h1 class="text-bold">Recommended Build</h1></div>
+    <div class="flex flex-wrap gap-10">
+      <div>
+        <h1 class="font-bold">Recommended Build</h1>
+        <span class="flex gap-px w-1/6 sm:w-1/6">
+          <img
+            v-for="item in god.lr_top_items"
+            :src="item.image"
+            :alt="item.name"
+            :class="'border-solid border border-' + god.role.toLowerCase()"
+          />
+        </span>
+      </div>
+      <div>
+        <h1 class="font-bold">Popular Items</h1>
+        <span class="flex gap-px w-1/6 sm:w-1/6">
+          <img
+            v-for="item in god.top_items"
+            :src="item.image"
+            :alt="item.name"
+            :class="'border-solid border border-' + god.role.toLowerCase()"
+          />
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
