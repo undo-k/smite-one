@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, ref } from "vue";
 const godDetailModel = defineModel("god");
 const hideGodDetail = defineModel("hideGodDetail");
 const god = ref({});
