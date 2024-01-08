@@ -87,6 +87,7 @@ onMounted(() => {
             </svg>
           </div>
         </th>
+        <!-- WR -->
         <th scope="col" class="w-1/6">
           <span
             class="flex items-center hover:cursor-pointer"
