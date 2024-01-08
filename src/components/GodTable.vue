@@ -33,11 +33,11 @@ const filteredGods = () => {
     );
   } else {
     return insertionSort(filteredGods);
-    return filteredGods.sort((a, b) =>
-      sortDescend.value
-        ? a[key].localeCompare(b[key])
-        : b[key].localeCompare(a[key]),
-    );
+    // return filteredGods.sort((a, b) =>
+    //   sortDescend.value
+    //     ? a[key].localeCompare(b[key])
+    //     : b[key].localeCompare(a[key]),
+    // );
   }
 };
 
@@ -53,9 +53,9 @@ const getColorForPercentage = (value) => {
 
 const stringComparator = (string1, string2) => {
   if (sortDescend.value) {
-    return string1.localeCompare(string2) > 0;
+    return string1 > string2;
   } else {
-    return string1.localeCompare(string2) < 0;
+    return string1 < string2;
   }
 };
 const insertionSort = (array) => {
