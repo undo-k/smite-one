@@ -4,7 +4,7 @@ const setGodDetailModel = defineModel();
 
 let gods = ref([]);
 let filter = ref("");
-let sortBy = ref("name");
+let sortingKey = ref("name");
 let sortDescend = ref(true);
 
 const fetchGods = () => {
@@ -18,23 +18,25 @@ const fetchGods = () => {
 };
 const filteredGods = () => {
   const filterValue = filter.value.toLowerCase();
+  const key = sortingKey.value;
 
   let filteredGods = gods.value.filter(
     (god) =>
       god.name.toLowerCase().includes(filterValue) ||
       god.role.toLowerCase().includes(filterValue),
   );
-  if (sortBy.value === "win_rate") {
+  if (key === "win_rate") {
     return filteredGods.sort((a, b) =>
       sortDescend.value
-        ? b[sortBy.value].toFixed(2) - a[sortBy.value].toFixed(2)
-        : a[sortBy.value].toFixed(2) - b[sortBy.value].toFixed(2),
+        ? b[key].toFixed(2) - a[key].toFixed(2)
+        : a[key].toFixed(2) - b[key].toFixed(2),
     );
   } else {
+    return insertionSort(filteredGods);
     return filteredGods.sort((a, b) =>
       sortDescend.value
-        ? a[sortBy.value].localeCompare(b[sortBy.value])
-        : b[sortBy.value].localeCompare(a[sortBy.value]),
+        ? a[key].localeCompare(b[key])
+        : b[key].localeCompare(a[key]),
     );
   }
 };
@@ -49,11 +51,55 @@ const getColorForPercentage = (value) => {
   }
 };
 
-const sortByColumn = (column) => {
-  if (sortBy.value === column) {
+const stringComparator = (string1, string2) => {
+  if (sortDescend.value) {
+    return string1.localeCompare(string2) > 0;
+  } else {
+    return string1.localeCompare(string2) < 0;
+  }
+};
+const insertionSort = (array) => {
+  //  https://www.doabledanny.com/insertion-sort-in-javascript
+  const key = sortingKey.value;
+  for (let i = 1; i < array.length; i++) {
+    let currentValue = array[i];
+
+    let j;
+
+    for (
+      j = i - 1;
+      j >= 0 && stringComparator(array[j][key], currentValue[key]);
+      j--
+    ) {
+      array[j + 1] = array[j];
+    }
+    array[j + 1] = currentValue;
+  }
+  return array;
+};
+const quickSort = (array) => {
+  if (array.length <= 1) {
+    return array;
+  }
+  const key = sortingKey.value;
+
+  let pivot = array[0];
+
+  let left = [];
+  let right = [];
+
+  for (let i = 1; i < array.length; i++) {
+    array[i][key] < pivot ? left.push(array[i]) : right.push(array[i]);
+  }
+
+  return quickSort(left).concat(pivot, quickSort(right));
+};
+
+const setColumnSort = (column) => {
+  if (sortingKey.value === column) {
     sortDescend.value = !sortDescend.value;
   } else {
-    sortBy.value = column;
+    sortingKey.value = column;
     sortDescend.value = true;
   }
 };
@@ -71,7 +117,7 @@ onMounted(() => {
         <th scope="col" class="sm:px-6 w-1/4 py-3 pl-2">
           <div
             class="flex items-center hover:cursor-pointer"
-            @click="sortByColumn('name')"
+            @click="setColumnSort('name')"
           >
             God
             <svg
@@ -91,7 +137,7 @@ onMounted(() => {
         <th scope="col" class="w-1/6">
           <span
             class="flex items-center hover:cursor-pointer"
-            @click="sortByColumn('win_rate')"
+            @click="setColumnSort('win_rate')"
           >
             WR
             <svg
@@ -111,7 +157,7 @@ onMounted(() => {
         <th scope="col" class="w-1/6">
           <span
             class="flex items-center hover:cursor-pointer"
-            @click="sortByColumn('role')"
+            @click="setColumnSort('role')"
           >
             Role
             <svg
