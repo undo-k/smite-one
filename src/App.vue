@@ -80,9 +80,9 @@ const hideGodDetail = () => {
     </main>
     <footer>
       <div class="text-center text-xs text-gray-50">
-        <a class="text-indigo-400" href="https://github.com/undo-k/smite-one/"
-          >github</a
-        >
+        <!--        <a class="text-indigo-400" href="https://github.com/undo-k/smite-one/"-->
+        <!--          >github</a-->
+        <!--        >-->
         - made with ❤️️️
       </div>
     </footer>
