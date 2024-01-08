@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+
 const setGodDetailModel = defineModel();
 
 let gods = ref([]);
@@ -32,12 +33,13 @@ const filteredGods = () => {
         : a[key].toFixed(2) - b[key].toFixed(2),
     );
   } else {
-    return insertionSort(filteredGods);
-    // return filteredGods.sort((a, b) =>
-    //   sortDescend.value
-    //     ? a[key].localeCompare(b[key])
-    //     : b[key].localeCompare(a[key]),
-    // );
+    // return insertionSort(filteredGods);
+    // const t0 = performance.now();
+    // const t1 = performance.now();
+    // console.log(t1 - t0, "ms");
+    return filteredGods.sort((a, b) =>
+      sortDescend.value ? a[key] > b[key] : a[key] < b[key],
+    );
   }
 };
 
