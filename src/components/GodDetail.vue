@@ -33,8 +33,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-gray-800 flex-grow text-gray-300 px-3 py-3">
-    <button class="float-right" @click="hideGodDetail">
+  <div class="bg-gray-800 flex-grow text-gray-300 py-3">
+    <button
+      class="float-right bg-gray-500 rounded-sm sm:mx-3"
+      @click="hideGodDetail"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6 mx-auto text-gray-400 scale-150"
@@ -56,7 +59,7 @@ onMounted(() => {
         ></path>
       </svg>
     </button>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap px-3">
       <div>
         <h1 class="font-black text-2xl">{{ god.name }}</h1>
         <div class="flex gap-2">
@@ -125,7 +128,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap gap-10">
+    <div class="flex flex-wrap gap-10 px-3">
       <div>
         <h1 class="font-bold">Recommended Build</h1>
         <span class="flex gap-px w-1/6 sm:w-1/6">
