@@ -40,11 +40,11 @@ const filteredGods = () => {
 
 const getColorForPercentage = (value) => {
   if (value < 46) {
-    return "red-500";
+    return "text-red-500";
   } else if (value >= 46 && value <= 52) {
-    return "amber-500";
+    return "text-amber-500";
   } else {
-    return "green-500";
+    return "text-green-500";
   }
 };
 
@@ -159,10 +159,9 @@ onMounted(() => {
           {{ god.name }}
         </th>
         <td>
-          <span
-            :class="'text-' + getColorForPercentage(god.win_rate.toFixed(2))"
-            >{{ god.win_rate.toFixed(2) }}</span
-          >
+          <span :class="getColorForPercentage(god.win_rate.toFixed(2))">{{
+            god.win_rate.toFixed(2)
+          }}</span>
         </td>
         <td>
           <span
