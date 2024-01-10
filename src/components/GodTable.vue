@@ -140,9 +140,9 @@ onMounted(() => {
           <span class="flex items-center">HOT ITEMS 🔥 </span>
         </th>
         <!-- Search -->
-        <td class="sm:pr-3">
+        <td class="w-1/6">
           <input
-            class="bg-gray-800 rounded-lg pl-3 focus:placeholder:text-transparent w-[5rem] sm:w-auto"
+            class="flex pl-2 bg-gray-800 rounded-lg focus:placeholder:text-transparent w-full"
             v-model="filter"
             placeholder="Search..."
           />
@@ -151,7 +151,7 @@ onMounted(() => {
     </thead>
     <!--    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;">-->
 
-    <tbody class="flex flex-col items-center h-[65vh] overflow-y-scroll w-full">
+    <tbody class="flex flex-col items-center h-[60vh] overflow-y-scroll w-full">
       <GodTableRow
         v-for="god in filteredGods"
         :key="god.name"

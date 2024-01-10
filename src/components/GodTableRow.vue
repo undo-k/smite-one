@@ -41,8 +41,8 @@ const getColorForPercentage = (value) => {
       >
     </td>
     <!--  Hot Items  -->
-    <td class="flex sm:px-3 w-1/4">
-      <span class="flex gap-px w-1/4 sm:w-1/6">
+    <td class="flex w-1/4">
+      <span class="flex gap-px w-1/4">
         <img
           v-for="item in god.top_items"
           :src="item.image"
@@ -50,23 +50,6 @@ const getColorForPercentage = (value) => {
           :class="'border-solid border border-' + god.role.toLowerCase()"
         />
       </span>
-    </td>
-    <!--  Desktop Chevron  -->
-    <td>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 mx-auto hidden sm:block"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M9.5 7L14.5 12L9.5 17"
-        ></path>
-      </svg>
     </td>
   </tr>
 </template>
