@@ -18,17 +18,20 @@ const getColorForPercentage = (value) => {
   <tr
     v-once
     @click="setGodDetailModel(god)"
-    class="border-b odd:bg-gray-800 hover:bg-gray-600 hover:cursor-pointer even:bg-gray-900 border-gray-700"
+    class="flex items-center w-full py-4 px-2 border-b odd:bg-gray-800 hover:bg-gray-600 hover:cursor-pointer even:bg-gray-900 border-gray-700"
   >
-    <th scope="row" class="pl-1 sm:px-6 py-4 font-medium text-white">
+    <!--  God Name  -->
+    <th scope="row" class="sm:px-6 w-1/4 font-medium text-white">
       {{ god.name }}
     </th>
-    <td>
+    <!--  Win Rate  -->
+    <td class="w-1/6">
       <span :class="getColorForPercentage(god.win_rate.toFixed(2))">{{
         god.win_rate.toFixed(2)
       }}</span>
     </td>
-    <td>
+    <!--  Role  -->
+    <td class="flex items-center w-1/6">
       <span
         class="text-xs px-1.5 py-0.5 rounded-full border"
         :class="
@@ -37,8 +40,9 @@ const getColorForPercentage = (value) => {
         >{{ god.role }}</span
       >
     </td>
-    <td class="pr-12 sm:px-3">
-      <span class="flex gap-px w-1/2 sm:w-1/6">
+    <!--  Hot Items  -->
+    <td class="flex sm:px-3 w-1/4">
+      <span class="flex gap-px w-1/4 sm:w-1/6">
         <img
           v-for="item in god.top_items"
           :src="item.image"
@@ -47,7 +51,7 @@ const getColorForPercentage = (value) => {
         />
       </span>
     </td>
-
+    <!--  Desktop Chevron  -->
     <td>
       <svg
         xmlns="http://www.w3.org/2000/svg"

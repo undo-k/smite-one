@@ -72,11 +72,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <table class="text-sm text-left bg-gray-700 text-gray-400">
-    <thead class="text-xs uppercase text-gray-400">
-      <tr>
+  <table class="w-full text-sm text-left bg-gray-700 text-gray-400">
+    <thead class="flex text-xs uppercase text-gray-400">
+      <tr class="flex items-center w-full py-3 px-2">
         <!-- God -->
-        <th scope="col" class="sm:px-6 w-1/4 py-3 pl-2">
+        <th scope="col" class="sm:px-6 w-1/4">
           <div
             class="flex items-center hover:cursor-pointer"
             @click="setColumnSort('name')"
@@ -140,7 +140,7 @@ onMounted(() => {
           <span class="flex items-center">HOT ITEMS 🔥 </span>
         </th>
         <!-- Search -->
-        <td class="sm:pr-3 pr-2">
+        <td class="sm:pr-3">
           <input
             class="bg-gray-800 rounded-lg pl-3 focus:placeholder:text-transparent w-[5rem] sm:w-auto"
             v-model="filter"
@@ -149,7 +149,9 @@ onMounted(() => {
         </td>
       </tr>
     </thead>
-    <tbody>
+    <!--    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;">-->
+
+    <tbody class="flex flex-col items-center h-[65vh] overflow-y-scroll w-full">
       <GodTableRow
         v-for="god in filteredGods"
         :key="god.name"

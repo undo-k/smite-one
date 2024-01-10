@@ -74,7 +74,7 @@ const hideGodDetail = () => {
     <main class="mb-2">
       <div class="container mt-4 mx-auto shadow-2xl">
         <div
-          class="min-h-[50vh] h-[75vh] max-w-[100vw] mx-auto border-2 border-gray-950 bg-gray-800 overflow-y-scroll overflow-x-hidden"
+          class="min-h-[50vh] max-w-[100vw] mx-auto border-2 border-gray-950 bg-gray-800 overflow-x-hidden"
         >
           <GodTable v-model="setGodDetailModel" v-show="detailsHidden" />
           <GodDetail
