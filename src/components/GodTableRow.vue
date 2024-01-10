@@ -18,7 +18,7 @@ const getColorForPercentage = (value) => {
   <tr
     v-once
     @click="setGodDetailModel(god)"
-    class="flex items-center w-full py-4 px-2 border-b odd:bg-gray-800 hover:bg-gray-600 hover:cursor-pointer even:bg-gray-900 border-gray-700"
+    class="flex items-center w-full py-2 sm:py-1 px-2 border-b odd:bg-gray-800 hover:bg-gray-600 hover:cursor-pointer even:bg-gray-900 border-gray-700"
   >
     <!--  God Name  -->
     <th scope="row" class="sm:px-6 w-1/4 font-medium text-white">
