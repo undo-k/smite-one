@@ -1,17 +1,32 @@
 <script setup>
+import { computed } from "vue";
+
 const setGodDetailModel = defineModel();
 const props = defineProps(["god"]);
 const god = props.god;
+const name = god.name;
+const winRate = god.win_rate.toFixed(2);
+const role = god.role;
+const topItems = god.top_items;
 
-const getColorForPercentage = (value) => {
-  if (value < 46) {
+const getWinRateColorCssClass = computed(() => {
+  if (winRate < 46) {
     return "text-red-500";
-  } else if (value >= 46 && value <= 52) {
+  } else if (winRate >= 46 && winRate <= 52) {
     return "text-amber-500";
   } else {
     return "text-green-500";
   }
-};
+});
+
+const getRoleColorCssClass = computed(() => {
+  const roleLowerCase = role.toLowerCase();
+  return "text-" + roleLowerCase + " border-" + roleLowerCase;
+});
+
+const getItemBorderClass = computed(() => {
+  return "border-solid border border-" + role.toLowerCase();
+});
 </script>
 
 <template>
@@ -22,32 +37,30 @@ const getColorForPercentage = (value) => {
   >
     <!--  God Name  -->
     <th scope="row" class="sm:px-6 w-1/4 font-medium text-white">
-      {{ god.name }}
+      {{ name }}
     </th>
     <!--  Win Rate  -->
     <td class="w-1/6">
-      <span :class="getColorForPercentage(god.win_rate.toFixed(2))">{{
-        god.win_rate.toFixed(2)
-      }}</span>
+      <span :class="getWinRateColorCssClass">
+        {{ winRate }}
+      </span>
     </td>
     <!--  Role  -->
     <td class="flex items-center w-1/6">
       <span
         class="text-xs px-1.5 py-0.5 rounded-full border"
-        :class="
-          'border-' + god.role.toLowerCase() + ' text-' + god.role.toLowerCase()
-        "
-        >{{ god.role }}</span
+        :class="getRoleColorCssClass"
+        >{{ role }}</span
       >
     </td>
     <!--  Hot Items  -->
     <td class="flex w-1/4">
       <span class="flex gap-px w-1/4">
         <img
-          v-for="item in god.top_items"
+          v-for="item in topItems"
           :src="item.image"
           :alt="item.name"
-          :class="'border-solid border border-' + god.role.toLowerCase()"
+          :class="getItemBorderClass"
         />
       </span>
     </td>
