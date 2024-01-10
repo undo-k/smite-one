@@ -39,16 +39,6 @@ const filteredGods = computed(() => {
   }
 });
 
-const getColorForPercentage = (value) => {
-  if (value < 46) {
-    return "text-red-500";
-  } else if (value >= 46 && value <= 52) {
-    return "text-amber-500";
-  } else {
-    return "text-green-500";
-  }
-};
-
 const stringComparator = (string1, string2) => {
   if (sortDescend.value) {
     return string1 > string2;
@@ -142,8 +132,9 @@ onMounted(() => {
         <!-- Search -->
         <td class="w-1/6">
           <input
-            class="flex pl-2 bg-gray-800 rounded-lg focus:placeholder:text-transparent w-full"
+            class="flex pl-2 pr-1 bg-gray-800 rounded-lg focus:placeholder:text-transparent w-full"
             v-model="filter"
+            type="search"
             placeholder="Search..."
           />
         </td>
