@@ -140,7 +140,7 @@ onMounted(() => {
           />
         </span>
       </div>
-      <div>
+      <div class="sm:ml-auto">
         <h1 class="font-bold">Popular Items</h1>
         <span class="flex gap-px w-1/6 sm:w-1/6">
           <img
