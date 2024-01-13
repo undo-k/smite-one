@@ -6,3 +6,5 @@ The goal of Smite One is to provide a fast, mobile-friendly build recommendation
 The live demo can be found [here](https://smite-one-production.up.railway.app/)
 
 Again this is a WIP and the recommended builds you see on the site right now come without warranty and make no guarantees about the statistical significance or validity of item combinations at this time. (I need more data, plz give access to dev API HiRez)
+
+edit january 13th 2024: wow they announced Smite 2 and it's a completely different beast in terms of builds and item purchases lmao
