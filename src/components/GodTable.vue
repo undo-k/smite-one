@@ -141,7 +141,7 @@ onMounted(() => {
       </tr>
     </thead>
 
-    <tbody class="flex flex-col items-center h-[65vh] overflow-y-scroll w-full">
+    <tbody class="flex flex-col items-center h-[60vh] overflow-y-scroll w-full">
       <GodTableRow
         v-for="god in filteredGods"
         :key="god.name"
