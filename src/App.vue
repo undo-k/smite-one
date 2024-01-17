@@ -16,7 +16,7 @@ const hideGodDetail = () => {
 </script>
 
 <template>
-  <div class="max-w-[1000px] mx-auto pt-4 flex flex-col h-[100vh]">
+  <div class="max-w-[1000px] mx-auto pt-4 flex flex-col">
     <header>
       <div>
         <a href="/"
