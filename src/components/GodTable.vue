@@ -64,8 +64,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <table class="w-full text-sm text-left bg-gray-700 text-gray-400">
-    <thead class="flex text-xs uppercase text-gray-400">
+  <table class="w-full text-sm text-left text-gray-400">
+    <thead class="flex text-xs uppercase bg-gray-700 text-gray-400">
       <tr class="flex items-center w-full py-3 px-2">
         <!-- God -->
         <th scope="col" class="sm:px-6 w-1/4">

@@ -60,6 +60,7 @@ const getItemBorderClass = computed(() => {
           v-for="item in topItems"
           :src="item.image"
           :alt="item.name"
+          class="flex-1"
           :class="getItemBorderClass"
         />
       </span>
