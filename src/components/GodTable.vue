@@ -128,9 +128,9 @@ onMounted(() => {
           </span>
         </th>
         <!-- Hot Items -->
-        <th scope="col" class="w-1/4">
-          <span class="flex items-center">HOT ITEMS 🔥 </span>
-        </th>
+        <td class="w-1/4">
+          <span class="flex items-center font-bold">HOT ITEMS 🔥 </span>
+        </td>
         <!-- Search -->
         <td class="w-1/6">
           <input
