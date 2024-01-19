@@ -67,7 +67,7 @@ const getImageFileName = (image) => {
       <span class="flex gap-px w-1/4">
         <img
           v-for="item in topItems"
-          :src="item.image"
+          :src="getImageFileName(item)"
           :alt="item.name"
           class="flex-1"
           :class="getItemBorderClass"
