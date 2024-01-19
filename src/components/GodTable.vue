@@ -12,7 +12,7 @@ let doneLoading = ref(false);
 const fetchGods = () => {
   // fetch("https://web-production-3593.up.railway.app/gods/")
   // fetch("http://127.0.0.1:8000/gods/")
-  fetch("https://web-production-3593.up.railway.app/gods/")
+  // fetch("http://localhost:8080/api/v2/gods")
     .then((response) => response.json())
     .then((json) => {
       gods.value = json;

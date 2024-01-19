@@ -27,6 +27,15 @@ const getRoleColorCssClass = computed(() => {
 const getItemBorderClass = computed(() => {
   return "border-solid border border-" + role.toLowerCase();
 });
+
+const getImageFileName = (image) => {
+  let name = image;
+  name = name.replace(/ /g, "_");
+  name = name.replace(/'/g, "");
+  let path = "/static/images/" + name.toLowerCase() + ".jpg";
+  console.log(image, path);
+  return path;
+};
 </script>
 
 <template>

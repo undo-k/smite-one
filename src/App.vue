@@ -71,10 +71,10 @@ const hideGodDetail = () => {
       </div>
     </header>
 
-    <main class="mb-2">
+    <main>
       <div class="container mt-4 mx-auto shadow-2xl">
         <div
-          class="h-[68.5vh] max-w-[100vw] mx-auto border-2 border-gray-950 bg-gray-800 overflow-hidden"
+          class="h-[68.5vh] max-w-[100vw] mx-auto rounded-[2px] border-gray-600 bg-gray-800 overflow-hidden"
         >
           <GodTable v-model="setGodDetailModel" v-show="detailsHidden" />
           <GodDetail
@@ -85,7 +85,7 @@ const hideGodDetail = () => {
         </div>
       </div>
     </main>
-    <footer>
+    <footer class="mt-2">
       <div class="text-center text-xs text-gray-50">
         <a class="text-indigo-400" href="https://github.com/undo-k/smite-one/">
           source
