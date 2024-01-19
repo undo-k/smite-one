@@ -68,7 +68,7 @@ const getImageFileName = (image) => {
         <img
           v-for="item in topItems"
           :src="getImageFileName(item)"
-          :alt="item.name"
+          :alt="item"
           class="flex-1"
           :class="getItemBorderClass"
         />
