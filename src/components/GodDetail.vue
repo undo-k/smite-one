@@ -1,17 +1,17 @@
 <script setup>
 import { onMounted, ref } from "vue";
+const debugMode = process.env.NODE_ENV === "development";
 const godDetailModel = defineModel("god");
 const hideGodDetail = defineModel("hideGodDetail");
 const god = ref({});
 let doneLoading = ref(false);
 
 const fetchGodDetail = () => {
-  // fetch("https://web-production-3593.up.railway.app/gods/" + godDetailModel.value.name)
-  // fetch("http://127.0.0.1:8000/gods/" + godDetailModel.value.name);
-  fetch(
-    "https://web-production-3593.up.railway.app/gods/" +
-      godDetailModel.value.name,
-  )
+  let api_url = debugMode
+    ? "http://localhost:8080/api/v2/gods/"
+    : "https://web-production-3593.up.railway.app/gods/";
+
+  fetch(api_url + godDetailModel.value.name)
     .then((response) => response.json())
     .then((json) => {
       god.value = json;

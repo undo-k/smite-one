@@ -1,13 +1,13 @@
 <script setup>
 import { computed } from "vue";
-
+const debugMode = process.env.NODE_ENV === "development";
 const setGodDetailModel = defineModel();
 const props = defineProps(["god"]);
 const god = props.god;
 const name = god.name;
 const winRate = god.win_rate.toFixed(2);
 const role = god.role;
-const topItems = god.top_items;
+const hotItems = god.hot_items;
 
 const getWinRateColorCssClass = computed(() => {
   if (winRate < 46) {
@@ -32,9 +32,12 @@ const getImageFileName = (image) => {
   let name = image;
   name = name.replace(/ /g, "_");
   name = name.replace(/'/g, "");
-  let path = "/static/images/" + name.toLowerCase() + ".jpg";
-  console.log(image, path);
-  return path;
+  name = name.replace(/-/g, "_");
+  let api_url = debugMode
+    ? "http://localhost:8080/static/images/"
+    : "/static/images/";
+
+  return api_url + name.toLowerCase() + ".jpg";
 };
 </script>
 
@@ -66,7 +69,7 @@ const getImageFileName = (image) => {
     <td class="flex w-1/4">
       <span class="flex gap-px w-1/4">
         <img
-          v-for="item in topItems"
+          v-for="item in hotItems"
           :src="getImageFileName(item)"
           :alt="item"
           class="flex-1"

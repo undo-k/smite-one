@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import GodTableRow from "@/components/GodTableRow.vue";
+const debugMode = process.env.NODE_ENV === "development";
 const setGodDetailModel = defineModel();
 
 let gods = ref([]);
@@ -10,10 +11,10 @@ let sortDescend = ref(true);
 let doneLoading = ref(false);
 
 const fetchGods = () => {
-  // fetch("https://web-production-3593.up.railway.app/gods/")
-  // fetch("http://127.0.0.1:8000/gods/")
-  // fetch("http://localhost:8080/api/v2/gods")
-  fetch("http://localhost:8080/api/v2/gods")
+  let api_url = debugMode
+    ? "http://localhost:8080/api/v2/gods"
+    : "https://web-production-3593.up.railway.app/gods/";
+  fetch(api_url)
     .then((response) => response.json())
     .then((json) => {
       gods.value = json;
