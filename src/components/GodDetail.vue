@@ -19,6 +19,18 @@ const fetchGodDetail = () => {
     });
 };
 
+const getImageFileName = (image) => {
+  let name = image;
+  name = name.replace(/ /g, "_");
+  name = name.replace(/'/g, "");
+  name = name.replace(/-/g, "_");
+  let api_url = debugMode
+    ? "http://localhost:8080/static/images/"
+    : "/static/images/";
+
+  return api_url + name.toLowerCase() + ".jpg";
+};
+
 const getColorForPercentage = (value) => {
   if (value < 46) {
     return "red-500";
@@ -146,9 +158,9 @@ onMounted(() => {
         <h1 class="font-bold">Recommended Build</h1>
         <span class="flex gap-px">
           <img
-            v-for="item in god.lr_top_items"
-            :src="item.image"
-            :alt="item.name"
+            v-for="item in god.top_items"
+            :src="getImageFileName(item)"
+            :alt="item"
             class="flex-1 sm:flex-none"
             :class="'border-solid border border-' + god.role.toLowerCase()"
           />
@@ -158,9 +170,9 @@ onMounted(() => {
         <h1 class="font-bold">Popular Items</h1>
         <span class="flex gap-px">
           <img
-            v-for="item in god.top_items"
-            :src="item.image"
-            :alt="item.name"
+            v-for="item in god.hot_items"
+            :src="getImageFileName(item)"
+            :alt="item"
             class="flex-1 sm:flex-none"
             :class="'border-solid border border-' + god.role.toLowerCase()"
           />
