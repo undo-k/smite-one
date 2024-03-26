@@ -1,3 +1,7 @@
+# Deprecated
+This is an early and obsolete version of https://github.com/undo-k/smite-app that's been rewritten with Nuxt and PicoCSS. I'm gonna leave this repo here tho cus I need to keep my commit history padded out 
+
+
 # Smite One  
 **A WIP lightweight site that provides recommended builds for each God in the popular multiplayer-online-battle-arena [SMITE](https://smitegame.com/.)**  
   
